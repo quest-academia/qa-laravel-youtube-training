@@ -21,6 +21,13 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'self_sentence',
+        'icon_url',
+        'administrator_flag',
+        'twitter_url',
+        'instagram_url',
+        'blog_url',
+        'github_url',
     ];
 
     /**
@@ -41,4 +48,16 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function user_model(){
+        return $this->hasOne(User_model::class);
+    }
+
+    public function user_tag(){
+        return $this->hasOne(User_tag::class);
+    }
+
+    public function user_course(){
+        return $this->hasOne(User_cource::class);
+    }
 }
