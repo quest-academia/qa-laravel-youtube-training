@@ -28,7 +28,7 @@ class CreateUsersTable extends Migration
             $table->text('blog_url')->nullable()->comment('ブログのURL');
             $table->text('github_url')->nullable()->comment('GitHubのURL');
             $table->rememberToken()->comment('パスワードリセット用トークン');
-            $table->timestamps()->comment('作成日と更新日');
+            $table->timestamps();
         });
     }
 

@@ -18,12 +18,11 @@ class CreateUserModelsTable extends Migration
             $table->id()->comment('ユーザモデルID');
             $table->integer('user_id')->comment('ユーザID');
             $table->integer('followed_user_id')->comment('フォローユーザID');
-            $table->timestamps()->comment('作成日と更新日');
+            $table->timestamps();
             $table->foreignId('user_id')
                 ->constrained('users')
                 ->cascadeOnDelete()
-                ->cascadeOnUpdate()
-                ->comment('外部キー制約');
+                ->cascadeOnUpdate();
         });
     }
 

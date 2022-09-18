@@ -18,12 +18,11 @@ class CreateUserCoursesTable extends Migration
             $table->id()->comment('ユーザコースID');
             $table->integer('user_id')->comment('ユーザID');
             $table->integer('course_id')->comment('コースID');
-            $table->timestamps()->comment('作成日と更新日');
+            $table->timestamps();
             $table->foreignId('user_id')
                 ->constrained('users')
                 ->cascadeOnDelete()
-                ->cascadeOnUpdate()
-                ->comment('外部キー制約');
+                ->cascadeOnUpdate();
         });
     }
 
