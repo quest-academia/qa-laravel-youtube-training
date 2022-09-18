@@ -15,11 +15,11 @@ class CreateMoviesTable extends Migration
     {
         Schema::create('movies', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('user_id')->unsigned()->nullable(false);
+            $table->bigInteger('user_id')->unsigned()->nullable(false)->comment('ユーザID');
             $table->foreign('user_id')->references('id')->on('users');
-            $table->string('title',256)->nullable(false);
-            $table->text('description')->nullable();
-            $table->text('url')->nullable(false);
+            $table->string('title',256)->nullable(false)->comment('タイトル');
+            $table->text('description')->nullable()->comment('説明文');
+            $table->text('url')->nullable(false)->comment('URL');
             $table->timestamps();
         });
     }
