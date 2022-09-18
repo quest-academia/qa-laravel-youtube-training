@@ -16,6 +16,11 @@ class Movie extends Model
         'url'
     ];
 
+    protected $dates = [
+        'created_at',
+        'updated_at',
+    ];
+
     public function user(){
         return $this->belongsTo(User::class);
     }
