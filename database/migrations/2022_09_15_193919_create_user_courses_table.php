@@ -13,11 +13,16 @@ class CreateUserCoursesTable extends Migration
      */
     public function up()
     {
+        // ユーザコーステーブルのカラム設定
         Schema::create('user_courses', function (Blueprint $table) {
-            $table->id();
-            $table->integer('user_id');
-            $table->integer('course_id');
-            $table->timestamps();
+            $table->id(); // ユーザコースID
+            $table->integer('user_id'); // ユーザID
+            $table->integer('course_id'); // コースID
+            $table->timestamps(); // 作成日と更新日
+            $table->foreignId('user_id')
+                ->constrained('users')
+                ->cascadeOnDelete()
+                ->cascadeOnUpdate(); // 外部キー制約
         });
     }
 

@@ -13,11 +13,16 @@ class CreateUserTagsTable extends Migration
      */
     public function up()
     {
+        // ユーザタグテーブルのカラム設定
         Schema::create('user_tags', function (Blueprint $table) {
-            $table->id();
-            $table->integer('user_id');
-            $table->integer('tag_id');
-            $table->timestamps();
+            $table->id(); // ユーザタグID
+            $table->integer('user_id'); // ユーザID
+            $table->integer('tag_id'); // タグID
+            $table->timestamps(); // 作成日と更新日
+            $table->foreignId('user_id')
+                ->constrained('users')
+                ->cascadeOnDelete()
+                ->cascadeOnUpdate(); // 外部キー制約
         });
     }
 

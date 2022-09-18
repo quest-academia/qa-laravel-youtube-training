@@ -13,11 +13,16 @@ class CreateUserModelsTable extends Migration
      */
     public function up()
     {
+        // ユーザモデルテーブルのカラム設定
         Schema::create('user_models', function (Blueprint $table) {
-            $table->id();
-            $table->integer('user_id');
-            $table->integer('followed_user_id');
-            $table->timestamps();
+            $table->id(); // ユーザモデルID
+            $table->integer('user_id'); // ユーザID
+            $table->integer('followed_user_id'); // フォローユーザID
+            $table->timestamps(); // 作成日と更新日
+            $table->foreignId('user_id')
+                ->constrained('users')
+                ->cascadeOnDelete()
+                ->cascadeOnUpdate(); // 外部キー制約
         });
     }
 
