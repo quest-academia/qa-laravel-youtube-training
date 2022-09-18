@@ -15,14 +15,15 @@ class CreateUserCoursesTable extends Migration
     {
         // ユーザコーステーブルのカラム設定
         Schema::create('user_courses', function (Blueprint $table) {
-            $table->id(); // ユーザコースID
-            $table->integer('user_id'); // ユーザID
-            $table->integer('course_id'); // コースID
-            $table->timestamps(); // 作成日と更新日
+            $table->id()->comment('ユーザコースID');
+            $table->integer('user_id')->comment('ユーザID');
+            $table->integer('course_id')->comment('コースID');
+            $table->timestamps()->comment('作成日と更新日');
             $table->foreignId('user_id')
                 ->constrained('users')
                 ->cascadeOnDelete()
-                ->cascadeOnUpdate(); // 外部キー制約
+                ->cascadeOnUpdate()
+                ->comment('外部キー制約');
         });
     }
 

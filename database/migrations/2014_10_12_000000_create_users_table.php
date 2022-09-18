@@ -15,20 +15,20 @@ class CreateUsersTable extends Migration
     {
         // ユーザテーブルのカラム設定
         Schema::create('users', function (Blueprint $table) {
-            $table->id(); // ユーザID
-            $table->string('name',50); // ユーザ名（50文字以内）
-            $table->string('email',50)->unique(); // メールアドレス（固有、50文字以内）
-            $table->timestamp('email_verified_at')->nullable(); // メール確認機能（デフォルトはnull）
-            $table->string('password',256); // パスワード（256文字以内）
-            $table->text('self_sentence')->nullable(); // 自己紹介文（空欄可）
-            $table->text('icon_url')->nullable(); // アイコンURL（空欄可）
-            $table->boolean('administrator_flag'); // 管理者フラグ
-            $table->text('twitter_url')->nullable(); // ツイッターのURL（空欄可）
-            $table->text('instagram_url')->nullable(); // インスタグラムのURL（空欄可）
-            $table->text('blog_url')->nullable(); // ブログのURL（空欄可）
-            $table->text('github_url')->nullable(); // GitHubのURL（空欄可）
-            $table->rememberToken(); // トークン(パスワードリセット用)
-            $table->timestamps(); // 作成日と更新日
+            $table->id()->comment('ユーザID');
+            $table->string('name',50)->comment('ユーザ名');
+            $table->string('email',50)->unique()->comment('メールアドレス');
+            $table->timestamp('email_verified_at')->nullable()->comment('メール確認機能');
+            $table->string('password',256)->comment('パスワード');
+            $table->text('self_sentence')->nullable()->comment('自己紹介文');
+            $table->text('icon_url')->nullable()->comment('アイコンURL');
+            $table->boolean('administrator_flag')->comment('管理者フラグ');
+            $table->text('twitter_url')->nullable()->comment('ツイッターのURL');
+            $table->text('instagram_url')->nullable()->comment('インスタグラムのURL');
+            $table->text('blog_url')->nullable()->comment('ブログのURL');
+            $table->text('github_url')->nullable()->comment('GitHubのURL');
+            $table->rememberToken()->comment('パスワードリセット用トークン');
+            $table->timestamps()->comment('作成日と更新日');
         });
     }
 

@@ -15,14 +15,15 @@ class CreateUserTagsTable extends Migration
     {
         // ユーザタグテーブルのカラム設定
         Schema::create('user_tags', function (Blueprint $table) {
-            $table->id(); // ユーザタグID
-            $table->integer('user_id'); // ユーザID
-            $table->integer('tag_id'); // タグID
-            $table->timestamps(); // 作成日と更新日
+            $table->id()->comment('ユーザタグID');
+            $table->integer('user_id')->comment('ユーザID');
+            $table->integer('tag_id')->comment('タグID');
+            $table->timestamps()->comment('作成日と更新日');
             $table->foreignId('user_id')
                 ->constrained('users')
                 ->cascadeOnDelete()
-                ->cascadeOnUpdate(); // 外部キー制約
+                ->cascadeOnUpdate()
+                ->comment('外部キー制約'); 
         });
     }
 
