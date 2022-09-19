@@ -13,7 +13,6 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        // ユーザテーブルのカラム設定
         Schema::create('users', function (Blueprint $table) {
             $table->id()->comment('ユーザID');
             $table->string('name',50)->comment('ユーザ名');

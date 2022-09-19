@@ -13,7 +13,6 @@ class CreateUserTagsTable extends Migration
      */
     public function up()
     {
-        // ユーザタグテーブルのカラム設定
         Schema::create('user_tags', function (Blueprint $table) {
             $table->id()->comment('ユーザタグID');
             $table->integer('user_id')->comment('ユーザID');

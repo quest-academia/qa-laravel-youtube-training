@@ -13,7 +13,6 @@ class CreateUserModelsTable extends Migration
      */
     public function up()
     {
-        // ユーザモデルテーブルのカラム設定
         Schema::create('user_models', function (Blueprint $table) {
             $table->id()->comment('ユーザモデルID');
             $table->integer('user_id')->comment('ユーザID');

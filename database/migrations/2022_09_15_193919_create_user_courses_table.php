@@ -13,7 +13,6 @@ class CreateUserCoursesTable extends Migration
      */
     public function up()
     {
-        // ユーザコーステーブルのカラム設定
         Schema::create('user_courses', function (Blueprint $table) {
             $table->id()->comment('ユーザコースID');
             $table->integer('user_id')->comment('ユーザID');
