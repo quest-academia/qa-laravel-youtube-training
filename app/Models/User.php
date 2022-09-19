@@ -66,4 +66,8 @@ class User extends Authenticatable
     public function user_course(){
         return $this->hasOne(User_cource::class);
     }
+
+    public function movie(){
+        return $this->hasMany(Movie::class);
+    }
 }
