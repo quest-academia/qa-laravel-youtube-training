@@ -15,13 +15,13 @@ class CreateUserTagsTable extends Migration
     {
         Schema::create('user_tags', function (Blueprint $table) {
             $table->id()->comment('ユーザタグID');
-            $table->integer('user_id')->comment('ユーザID');
+            $table->foreignId('user_id')
+            ->comment('ユーザID')
+            ->constrained('users')
+            ->cascadeOnDelete()
+            ->cascadeOnUpdate();
             $table->integer('tag_id')->comment('タグID');
             $table->timestamps();
-            $table->foreignId('user_id')
-                ->constrained('users')
-                ->cascadeOnDelete()
-                ->cascadeOnUpdate();
         });
     }
 
