@@ -15,13 +15,13 @@ class CreateUserModelsTable extends Migration
     {
         Schema::create('user_models', function (Blueprint $table) {
             $table->id()->comment('ユーザモデルID');
-            $table->integer('user_id')->comment('ユーザID');
-            $table->integer('followed_user_id')->comment('フォローユーザID');
-            $table->timestamps();
             $table->foreignId('user_id')
+                ->comment('ユーザID')
                 ->constrained('users')
                 ->cascadeOnDelete()
                 ->cascadeOnUpdate();
+            $table->integer('followed_user_id')->comment('フォローユーザID');
+            $table->timestamps();
         });
     }
 

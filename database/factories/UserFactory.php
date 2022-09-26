@@ -2,11 +2,19 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
 class UserFactory extends Factory
 {
+    /**
+     * The name of the factory's corresponding model.
+     *
+     * @var string
+     */
+    protected $model = \App\Models\User::class;
+
     /**
      * Define the model's default state.
      *
@@ -18,7 +26,14 @@ class UserFactory extends Factory
             'name' => $this->faker->name(),
             'email' => $this->faker->unique()->safeEmail(),
             'email_verified_at' => now(),
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
+            'self_sentence' => $this->faker->text(80),
+            'icon_url' => asset('/images/nico.jpg'),
+            'administrator_flag' => $this->faker->boolean(25),
+            'twitter_url' => $this->faker->url(),
+            'instagram_url' => $this->faker->url(),
+            'blog_url' => $this->faker->url(),
+            'github_url' => $this->faker->url(),
             'remember_token' => Str::random(10),
         ];
     }

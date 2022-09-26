@@ -15,13 +15,13 @@ class CreateUserCoursesTable extends Migration
     {
         Schema::create('user_courses', function (Blueprint $table) {
             $table->id()->comment('ユーザコースID');
-            $table->integer('user_id')->comment('ユーザID');
+            $table->foreignId('user_id')
+            ->comment('ユーザID')
+            ->constrained('users')
+            ->cascadeOnDelete()
+            ->cascadeOnUpdate();
             $table->integer('course_id')->comment('コースID');
             $table->timestamps();
-            $table->foreignId('user_id')
-                ->constrained('users')
-                ->cascadeOnDelete()
-                ->cascadeOnUpdate();
         });
     }
 
