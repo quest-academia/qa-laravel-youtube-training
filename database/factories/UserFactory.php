@@ -28,7 +28,7 @@ class UserFactory extends Factory
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
             'self_sentence' => $this->faker->text(80),
-            'icon_url' => '{{ asset("images/nico.jpg") }}',
+            'icon_url' => asset('/images/nico.jpg'),
             'administrator_flag' => $this->faker->boolean(25),
             'twitter_url' => $this->faker->url(),
             'instagram_url' => $this->faker->url(),
