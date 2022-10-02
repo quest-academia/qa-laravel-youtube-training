@@ -3,10 +3,10 @@
 namespace Database\Factories;
 
 use App\Models\User;
-use App\Models\User_model;
+use App\Models\UserTag;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class User_ModelFactory extends Factory
+class UserTagFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -16,11 +16,10 @@ class User_ModelFactory extends Factory
     public function definition()
     {
         $user_id = User::all()->random(1)[0]->id;
-        $followed_user_id = User::inRandomOrder()->where('id','<>','$user_id')->first()->id;
-
+        
         return [
             'user_id'=>$user_id,
-            'followed_user_id'=>$followed_user_id,
+            'tag_id'=>$this->faker->numberBetween(1,3),
         ];
     }
 }

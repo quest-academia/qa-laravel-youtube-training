@@ -2,10 +2,11 @@
 
 namespace Database\Factories;
 
-use App\Models\User_tag;
+use App\Models\User;
+use App\Models\UserCourse;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class User_TagFactory extends Factory
+class UserCourseFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -14,9 +15,11 @@ class User_TagFactory extends Factory
      */
     public function definition()
     {
+        $user_id = User::all()->random(1)[0]->id;
+
         return [
-            'user_id'=>$this->faker->numberBetween(1,5),
-            'tag_id'=>$this->faker->numberBetween(1,3),
+            'user_id'=>$user_id,
+            'course_id'=>$this->faker->numberBetween(1,3),
         ];
     }
 }

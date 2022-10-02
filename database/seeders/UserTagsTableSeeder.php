@@ -2,9 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Models\UserTag;
 use Illuminate\Database\Seeder;
 
-class User_CoursesTableSeeder extends Seeder
+class UserTagsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,6 +14,6 @@ class User_CoursesTableSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\User_course::factory(5)->create();
+        \App\Models\UserTag::factory(5)->create();
     }
 }
