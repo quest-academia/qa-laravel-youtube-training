@@ -55,19 +55,47 @@ class User extends Authenticatable
         'updated_at',
     ];
 
-    public function user_model(){
-        return $this->hasOne(User_model::class);
-    }
-
     public function user_tag(){
-        return $this->hasOne(User_tag::class);
+        return $this->hasMany(User_tag::class);
     }
 
     public function user_course(){
-        return $this->hasOne(User_cource::class);
+        return $this->hasMany(User_cource::class);
     }
 
     public function movie(){
         return $this->hasMany(Movie::class);
+    }
+
+    public function followings()
+    {
+        return $this->belongsToMany(User::class,'user_models','user_id','followed_user_id')->withTimestamps();
+    }
+
+    public function followers()
+    {
+        return $this->belongsToMany(User::class,'user_models','followed_user_id','user_id')->withTimestamps();
+    }
+
+    public function is_following($userId)
+    {
+        return $this->followings()->where('followed_user_id', $userId)->exists();
+    }
+
+    public function follow($userId)
+    {
+        $existing = $this->is_following($userId);
+        $myself = $this->id == $userId;
+        if (!$existing && !$myself) {
+            $this->followings()->attach($userId);
+        }
+    }
+    public function unfollow($userId)
+    {
+        $existing = $this->is_following($userId);
+        $myself = $this->id == $userId;
+        if ($existing && !$myself) {
+            $this->followings()->detach($userId);
+        }
     }
 }
