@@ -16,7 +16,7 @@ class UserModelFactory extends Factory
     public function definition()
     {
         $user_id = User::all()->random(1)[0]->id;
-        $followed_user_id = User::inRandomOrder()->where('id','<>','$user_id')->first()->id;
+        $followed_user_id = User::where('id','<>',$user_id)->inRandomOrder()->first()->id;
 
         return [
             'user_id'=>$user_id,

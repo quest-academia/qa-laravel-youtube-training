@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 
 class UserCourseFactory extends Factory
 {
+    private static int $course_id = 1;
     /**
      * Define the model's default state.
      *
@@ -19,7 +20,10 @@ class UserCourseFactory extends Factory
 
         return [
             'user_id'=>$user_id,
-            'course_id'=>$this->faker->numberBetween(1,3),
+            'course_id'=>function()
+            {
+                return self::$course_id++;
+            },
         ];
     }
 }

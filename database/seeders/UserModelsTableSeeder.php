@@ -13,6 +13,7 @@ class UserModelsTableSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\UserModel::factory(5)->create();
+        \App\Models\UserModel::factory(10)->create();
     }
 }
+

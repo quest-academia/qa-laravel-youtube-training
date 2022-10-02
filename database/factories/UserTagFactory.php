@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 
 class UserTagFactory extends Factory
 {
+    private static int $tag_id = 1;
     /**
      * Define the model's default state.
      *
@@ -19,7 +20,10 @@ class UserTagFactory extends Factory
         
         return [
             'user_id'=>$user_id,
-            'tag_id'=>$this->faker->numberBetween(1,3),
+            'tag_id'=>function()
+            {
+                return self::$tag_id++;
+            },
         ];
     }
 }
