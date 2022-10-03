@@ -20,7 +20,12 @@ class CreateUserModelsTable extends Migration
                 ->constrained('users')
                 ->cascadeOnDelete()
                 ->cascadeOnUpdate();
-            $table->integer('followed_user_id')->comment('フォローユーザID');
+            $table->foreignId('followed_user_id')
+                ->comment('フォローユーザID')
+                ->constrained('users')
+                ->cascadeOnDelete()
+                ->cascadeOnUpdate();
+            $table->unique(['user_id','followed_user_id']);
             $table->timestamps();
         });
     }
