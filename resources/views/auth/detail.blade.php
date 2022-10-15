@@ -12,85 +12,85 @@
                 @csrf
                     <div class="form-group">
                         <label class="form-label" for="name">名前</label>
-                        <input id="name" type="text" class="form-control" name="name">
+                        <input name="name" type="text" class="form-control">
                     </div>
 
                     <div class="form-group">
                         <label class="form-label" for="email">メールアドレス</label>
-                        <input id="email" type="email" class="form-control" name="email">
+                        <input name="email" type="email" class="form-control">
                     </div>
 
                     <div class="form-group">
                         <label class="form-label" for="password">パスワード</label>
-                        <input id="password" type="password" class="form-control" name="password">
+                        <input name="password" type="password" class="form-control">
                     </div>
 
                     <div class="form-group">
-                        <label for="image">アイコン画像 </label>
+                        <label for="icon_url">アイコン画像 </label>
                         <br>
-                        <input id="icon-image" type="file" accept="image/png, image/jpeg, image/jpg, image/gif" name="icon-image">
+                        <input name="icon_url" type="file" accept="image/png, image/jpeg, image/jpg, image/gif">
                     </div>
 
                     <div class="form-group">
-                        <label for="self-introduction-movie">自己紹介動画 </label>
+                        <label for="self_introduction_movie">自己紹介動画 </label>
                         <br>
-                        <input id="self-introduction-movie" type="url" name="self-introduction-movie" size="56">
+                        <input name="self_introduction_movie" type="url" size="56">
                     </div>
 
                     <div class="form-group">
-                        <label for="twitter-url">ツイッターURL </label>
+                        <label for="twitter_url">ツイッターURL </label>
                         <br>
-                        <input id="twitter-url" type="url" name="twitter-url" size="56">
+                        <input name="twitter_url" type="url" size="56">
                     </div>
 
                     <div class="form-group">
-                        <label for="GitHub-url">GitHubのURL </label>
+                        <label for="github_url">GitHubのURL </label>
                         <br>
-                        <input id="GitHub-url" type="url" name="GitHub-url" size="56">
+                        <input name="github_url" type="url" size="56">
                     </div>
 
                     <div class="form-group">
-                        <label for="Instagram-url">InstagramのURL</label>
+                        <label for="instagram_url">InstagramのURL</label>
                         <br>
-                        <input id="Instagram-url" type="url" name="Instagram-url" size="56">
+                        <input name="instagram_url" type="url" size="56">
                     </div>
 
                     <div class="form-group">
-                        <label for="blog-url">blog URL</label>
+                        <label for="blog_url">blog URL</label>
                         <br>
-                        <input id="blog-url" type="url" name="blog-url" size="56">
+                        <input name="blog_url" type="url" size="56">
                     </div>
 
                     <div class="form-group">
-                        <label for="tag-checkbox">タグ選択</label>
+                        <label for="tag_checkbox">タグ選択</label>
                         <br>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="tag-checkbox1">
-                            <label class="form-check-label" for="tag-checkbox1">PHP</label>
+                            <input name="tag_checkbox[]" type="checkbox" class="form-check-input" value="1">
+                            <label class="form-check-label" for="tag_checkbox1">PHP</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="tag-checkbox2">
-                            <label class="form-check-label" for="tag-checkbox2">Java</label>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="course-checkbox">コース選択</label>
-                        <br>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="course-checkbox1">
-                            <label class="form-check-label" for="course-checkbox1">Laravel講座</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="course-checkbox2">
-                            <label class="form-check-label" for="course-checkbox2">Vue.js講座</label>
+                            <input name="tag_checkbox[]" type="checkbox" class="form-check-input" value="2">
+                            <label class="form-check-label" for="tag_checkbox2">Java</label>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="form-label" for="self-introduction-textarea">自己紹介文</label>
+                        <label for="course_checkbox">コース選択</label>
                         <br>
-                        <textarea class="form-control" id="self-introduction-textarea" rows="10" placeholder="あとで設定したい場合は空欄にしてください" name="self-introduction-sentense"></textarea>
+                        <div class="form-check form-check-inline">
+                            <input name="course_checkbox[]" type="checkbox" class="form-check-input" value="1">
+                            <label class="form-check-label" for="course_checkbox1">Laravel講座</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input name="course_checkbox[]" type="checkbox" class="form-check-input" value="2">
+                            <label class="form-check-label" for="course_checkbox2">Vue.js講座</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="self_introduction_textarea">自己紹介文</label>
+                        <br>
+                        <textarea name="self_introduction_sentence" class="form-control" rows="10" placeholder="あとで設定したい場合は空欄にしてください"></textarea>
                     </div>
 
                     <div class="actions text-center my-5">
