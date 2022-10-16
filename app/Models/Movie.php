@@ -36,8 +36,7 @@ class Movie extends Model
     private function getYoutubeID()
     {
         preg_match('/\?v=([^&]+)/', $this->url, $match);
-        $id = $match[1];
-        return $id;
+        return $match[1];
     }
 
     /**

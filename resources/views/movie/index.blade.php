@@ -2,7 +2,7 @@
 @section('content')
 <h1 class="mb-5">自己紹介動画　一覧</h1>
 <div class="row">
-    @if($movies)
+    @if($movies->isNotEmpty())
     @foreach ($movies as $movie)
     <div class="col-md-4">
         <p class="text-right">{{$movie->user->name}}</p>
