@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Models\User;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
+use App\Models\User;
 use Illuminate\Auth\Events\Registered;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class DetailController extends Controller
 {
@@ -18,7 +18,7 @@ class DetailController extends Controller
         if ($pw == self::PASSWORD) {
             return view('auth.detail');
         } else {
-            return view('auth.login');
+            return redirect()->route('login');
         }
     }
 
@@ -36,16 +36,23 @@ class DetailController extends Controller
             'blog_url' => ['url','nullable'],
             'tag_checkbox' => ['nullable'],
             'course_checkbox' => ['required'],
-            'self_introduction_sentence' => ['string'],
+            'self_sentence' => ['string','nullable'],
         ]);
     }
 
     protected function create(array $data)
     {
-        // var_dump($data);die;
+        if(!isset($data['icon_url'])) {
+            $data['icon_url'] = null;
+        } else {
+            $original = request()->file('icon_url')->getClientOriginalName();
+            $name = date('Ymd_His').'_'.$original;
+            request()->file('icon_url')->move('storage/images',$name);
+            $data['icon_url'] = $name;
+        }
         return User::create([
             'name' => $data['name'],
-            'email' =>$data ['email'],
+            'email' => $data ['email'],
             'password' => Hash::make($data['password']),
             'icon_url' => $data['icon_url'],
             'self_introduction_movie' => $data['self_introduction_movie'],
@@ -55,7 +62,7 @@ class DetailController extends Controller
             'blog_url' => $data['blog_url'],
             'tag_checkbox' => $data['tag_checkbox'],
             'course_checkbox' => $data['course_checkbox'],
-            'self_introduction_sentence' => $data['self_introduction_sentence'],
+            'self_sentence' => $data['self_sentence'],
             'administrator_flag' => 0,
         ]);
     }
@@ -64,6 +71,6 @@ class DetailController extends Controller
     {
         $this->validator($request->all())->validate();
         event(new Registered($user = $this->create($request->all())));
-        return redirect()->route('login');
+        return redirect()->route('loginnew');
     }
 }

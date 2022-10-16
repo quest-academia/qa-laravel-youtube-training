@@ -165,7 +165,7 @@ return [
         'blog_url' => 'ブログのURL',
         'tag_checkbox' => 'タグ選択',
         'course_checkbox' => 'コース選択',
-        'self_introduction_sentence' => '自己紹介文',
+        'self_sentence' => '自己紹介文',
     ],
 
 ];

@@ -8,25 +8,25 @@
                     お客様情報登録
                     </h2>
                 </div>
-                <form class="new_user" id="new_user" action="" accept-charset="UTF-8" method="post">
+                <form class="new_user" id="new_user" action="" accept-charset="UTF-8" method="post" enctype="multipart/form-data">
                 @csrf
                     <div class="form-group">
                         <label class="form-label" for="name">名前</label>
-                        <input name="name" type="text" class="form-control">
+                        <input name="name" type="text" value="{{ old('name') }}" class="form-control">
                     </div>
 
                     <div class="form-group">
                         <label class="form-label" for="email">メールアドレス</label>
-                        <input name="email" type="email" class="form-control">
+                        <input name="email" type="email" value="{{ old('email') }}" class="form-control">
                     </div>
 
                     <div class="form-group">
                         <label class="form-label" for="password">パスワード</label>
-                        <input name="password" type="password" class="form-control">
+                        <input name="password" type="password" class="form-control" placeholder="6～15文字で設定してください">
                     </div>
 
                     <div class="form-group">
-                        <label for="icon_url">アイコン画像 </label>
+                        <label for="icon_url">アイコン画像（1MBまで）</label>
                         <br>
                         <input name="icon_url" type="file" accept="image/png, image/jpeg, image/jpg, image/gif">
                     </div>
@@ -34,31 +34,31 @@
                     <div class="form-group">
                         <label for="self_introduction_movie">自己紹介動画 </label>
                         <br>
-                        <input name="self_introduction_movie" type="url" size="56">
+                        <input name="self_introduction_movie" type="url" value="{{ old('self_introduction_movie') }}" class="form-control">
                     </div>
 
                     <div class="form-group">
                         <label for="twitter_url">ツイッターURL </label>
                         <br>
-                        <input name="twitter_url" type="url" size="56">
+                        <input name="twitter_url" type="url" value="{{ old('twitter_url') }}" class="form-control">
                     </div>
 
                     <div class="form-group">
                         <label for="github_url">GitHubのURL </label>
                         <br>
-                        <input name="github_url" type="url" size="56">
+                        <input name="github_url" type="url" value="{{ old('github_url') }}" class="form-control">
                     </div>
 
                     <div class="form-group">
                         <label for="instagram_url">InstagramのURL</label>
                         <br>
-                        <input name="instagram_url" type="url" size="56">
+                        <input name="instagram_url" type="url" value="{{ old('instagram_url') }}" class="form-control">
                     </div>
 
                     <div class="form-group">
                         <label for="blog_url">blog URL</label>
                         <br>
-                        <input name="blog_url" type="url" size="56">
+                        <input name="blog_url" type="url" value="{{ old('blog_url') }}" class="form-control">
                     </div>
 
                     <div class="form-group">
@@ -88,9 +88,9 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="form-label" for="self_introduction_textarea">自己紹介文</label>
+                        <label class="form-label" for="self_sentence">自己紹介文</label>
                         <br>
-                        <textarea name="self_introduction_sentence" class="form-control" rows="10" placeholder="あとで設定したい場合は空欄にしてください"></textarea>
+                        <textarea name="self_sentence" class="form-control" rows="10" placeholder="あとで設定したい場合は空欄にしてください">{{ old('self_sentence') }}</textarea>
                     </div>
 
                     <div class="actions text-center my-5">
