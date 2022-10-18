@@ -6,7 +6,7 @@
     @foreach ($movies as $movie)
     <div class="col-md-4">
         <p class="text-right">{{$movie->user->name}}</p>
-        <a href="/movie/" target="_blank" rel="noopenner">
+        <a href="/movie/{{$movie->id}}" target="_blank" rel="noopenner">
             <img class="w-100" src="{{$movie->getYoutubeThumbnailURL()}}" alt="">
         </a>
         <h2 class="text-center">{{$movie->title}}</h2>
