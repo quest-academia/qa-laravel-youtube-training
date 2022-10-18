@@ -9,7 +9,7 @@
         <a href="/movie/{{$movie->id}}" target="_blank" rel="noopenner">
             <img class="w-100" src="{{$movie->getYoutubeThumbnailURL()}}" alt="">
         </a>
-        <h2 class="text-center">{{$movie->title}}</h2>
+        <h2 class="text-center mb-3">{{$movie->title}}</h2>
     </div>
     @endforeach
     @endif
