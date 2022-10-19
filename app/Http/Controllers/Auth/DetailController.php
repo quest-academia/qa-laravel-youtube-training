@@ -44,7 +44,7 @@ class DetailController extends Controller
 
     protected function create(array $data)
     {
-        if(!isset($data['icon_url'])) {
+        if (!isset($data['icon_url'])) {
             $data['icon_url'] = null;
         } else {
             $original = request()->file('icon_url')->getClientOriginalName();
@@ -53,7 +53,7 @@ class DetailController extends Controller
             $data['icon_url'] = $name;
         }
 
-        if(!isset($data['tag_checkbox'])){
+        if (!isset($data['tag_checkbox'])){
             $data['tag_checkbox'] = null;
         }
 
@@ -77,7 +77,7 @@ class DetailController extends Controller
     public function signup(Request $request)
     {
         $this->validator($request->all())->validate();
-        event(new Registered($user = $this->create($request->all())));
+        $this->create($request->all());
         return redirect()->route('loginnew');
     }
 }
