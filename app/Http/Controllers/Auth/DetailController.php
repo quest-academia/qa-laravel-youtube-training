@@ -40,6 +40,8 @@ class DetailController extends Controller
         ]);
     }
 
+    public const FALSE = 0;
+
     protected function create(array $data)
     {
         if(!isset($data['icon_url'])) {
@@ -50,6 +52,11 @@ class DetailController extends Controller
             request()->file('icon_url')->move('storage/images',$name);
             $data['icon_url'] = $name;
         }
+
+        if(!isset($data['tag_checkbox'])){
+            $data['tag_checkbox'] = null;
+        }
+
         return User::create([
             'name' => $data['name'],
             'email' => $data ['email'],
@@ -63,7 +70,7 @@ class DetailController extends Controller
             'tag_checkbox' => $data['tag_checkbox'],
             'course_checkbox' => $data['course_checkbox'],
             'self_sentence' => $data['self_sentence'],
-            'administrator_flag' => 0,
+            'administrator_flag' => FALSE,
         ]);
     }
 
