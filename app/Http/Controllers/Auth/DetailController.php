@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
-use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -12,6 +11,7 @@ use Illuminate\Support\Facades\Validator;
 class DetailController extends Controller
 {
     public const PASSWORD = 'Lt368V7ay9JMTrXw';
+    public const NOT_ADMINISTRATOR = 0;
 
     public function showDetailForm($pw)
     {
@@ -39,8 +39,6 @@ class DetailController extends Controller
             'self_sentence' => ['string','nullable'],
         ]);
     }
-
-    public const FALSE = 0;
 
     protected function create(array $data)
     {
@@ -70,7 +68,7 @@ class DetailController extends Controller
             'tag_checkbox' => $data['tag_checkbox'],
             'course_checkbox' => $data['course_checkbox'],
             'self_sentence' => $data['self_sentence'],
-            'administrator_flag' => FALSE,
+            'administrator_flag' => self::NOT_ADMINISTRATOR,
         ]);
     }
 

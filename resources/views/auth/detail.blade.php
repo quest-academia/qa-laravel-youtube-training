@@ -65,11 +65,11 @@
                         <label for="tag_checkbox">タグ選択</label>
                         <br>
                         <div class="form-check form-check-inline">
-                            <input name="tag_checkbox[]" type="checkbox" class="form-check-input" value="1" {{ (is_array(old('tag_checkbox')) and in_array(1, old('tag_checkbox'))) ? 'checked' : '' }}>
+                            <input name="tag_checkbox[]" type="checkbox" class="form-check-input" value="1" {{ is_array(old('tag_checkbox')) && in_array(1, old('tag_checkbox')) ? 'checked' : '' ; }}>
                             <label class="form-check-label" for="tag_checkbox1">PHP</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input name="tag_checkbox[]" type="checkbox" class="form-check-input" value="2" {{ (is_array(old('tag_checkbox')) and in_array(2, old('tag_checkbox'))) ? 'checked' : '' }}>
+                            <input name="tag_checkbox[]" type="checkbox" class="form-check-input" value="2" {{ is_array(old('tag_checkbox')) && in_array(2, old('tag_checkbox')) ? 'checked' : '' ; }}>
                             <label class="form-check-label" for="tag_checkbox2">Java</label>
                         </div>
                     </div>
@@ -78,11 +78,11 @@
                         <label for="course_checkbox">コース選択</label>
                         <br>
                         <div class="form-check form-check-inline">
-                            <input name="course_checkbox[]" type="checkbox" class="form-check-input" value="1" {{ (is_array(old('course_checkbox')) and in_array(1, old('course_checkbox'))) ? 'checked' : '' }} >
+                            <input name="course_checkbox[]" type="checkbox" class="form-check-input" value="1" {{ is_array(old('course_checkbox')) && in_array(1, old('course_checkbox')) ? 'checked' : '' ; }} >
                             <label class="form-check-label" for="course_checkbox1">Laravel講座</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input name="course_checkbox[]" type="checkbox" class="form-check-input" value="2" {{ (is_array(old('course_checkbox')) and in_array(2, old('course_checkbox'))) ? 'checked' : '' }}>
+                            <input name="course_checkbox[]" type="checkbox" class="form-check-input" value="2" {{ is_array(old('course_checkbox')) && in_array(2, old('course_checkbox')) ? 'checked' : '' ; }}>
                             <label class="form-check-label" for="course_checkbox2">Vue.js講座</label>
                         </div>
                     </div>
