@@ -51,7 +51,7 @@ class DetailController extends Controller
             $data['icon_url'] = $name;
         }
 
-        if (!isset($data['tag_checkbox'])){
+        if (!isset($data['tag_checkbox'])) {
             $data['tag_checkbox'] = null;
         }
 
