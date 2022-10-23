@@ -20,7 +20,7 @@ class MovieController extends Controller
 
             // 単語をループで回し、それぞれの単語で部分一致で検索
             foreach ($search_words_array as $value) {
-                $query->where('title', 'like', '%' . $value . '%')
+                $query->orWhere('title', 'like', '%' . $value . '%')
                 ->orWhere('description', 'like', '%' . $value . '%')
                 ->orWhereHas(
                     'user',
