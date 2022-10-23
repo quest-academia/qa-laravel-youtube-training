@@ -8,7 +8,7 @@
         value="@if(isset($search)){{$search}}@endif"
         placeholder="キーワードを入力"></input>
         <span class="input-group-btn input-group-append">
-            <button type="submit" id="btn-search" class="btn btn-primary"><i class="fas fa-search"></i> キーワードで絞り込む</button>
+            <button type="submit" id="btn-search" class="btn btn-primary"><i class="fas fa-search"></i>キーワードで絞り込む</button>
         </span>
     </div>
 </form>
@@ -17,7 +17,7 @@
     @foreach ($movies as $movie)
     <div class="col-md-4">
         <p class="text-right">{{$movie->user->name}}</p>
-        <a href="/movie/{{$movie->id}}" target="_blank" rel="noopenner">
+        <a href="/movie/{{$movie->id}}">
             <img class="w-100" src="{{$movie->getYoutubeThumbnailURL()}}" alt="">
         </a>
         <h2 class="text-center mb-3">{{$movie->title}}</h2>
