@@ -13,7 +13,7 @@ class MovieController extends Controller
         $search = $request->input('search');
 
         //検索機能
-        if(!empty($search)){
+        if (!empty($search)) {
             // 単語を半角スペースで区切り、配列にする
             $space_search = mb_convert_kana($search, 's');
             $search_words_array = preg_split('/[\s,]+/', $space_search, -1, PREG_SPLIT_NO_EMPTY);
