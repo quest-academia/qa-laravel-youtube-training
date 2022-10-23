@@ -1,4 +1,4 @@
-<footer class="fixed-bottom">
+<footer>
     <nav class="navbar navbar-expand navbar-light bg-warning">
         <a class="navbar-brand">私立探求学園</a>
         <ul class="navbar-nav ml-auto">
