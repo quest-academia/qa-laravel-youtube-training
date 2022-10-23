@@ -45,7 +45,7 @@ class Movie extends Model
      */
     public function getYoutubeThumbnailURL()
     {
-        if(empty($this->getYoutubeID())){
+        if(empty( $this->getYoutubeID() )){
             return self::NO_IMAGE_THUMBNAIL_URL;
         }
         return 'http://img.youtube.com/vi/'.$this->getYoutubeID().'/hqdefault.jpg';
