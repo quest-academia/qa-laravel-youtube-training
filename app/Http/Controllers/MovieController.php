@@ -34,4 +34,10 @@ class MovieController extends Controller
         $movies = $query->latest()->paginate(12);
         return view('movie.index', compact('movies', 'search'));
     }
+
+    public function detail($id)
+    {
+        $movie = Movie::with('user:id,name')->find($id);
+        return view('movie.detail', compact('movie'));
+    }
 }
