@@ -38,6 +38,10 @@ class MovieController extends Controller
     public function detail($id)
     {
         $movie = Movie::with('user:id,name')->find($id);
+
+        if(is_null($movie)){
+            abort(404);
+        }
         return view('movie.detail', compact('movie'));
     }
 }
