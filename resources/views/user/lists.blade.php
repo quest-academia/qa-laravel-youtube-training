@@ -71,7 +71,7 @@
                 </tbody>
             </table>
             @else
-        <p class="mt-3">動画が見つかりませんでした。</p>
+        <p class="mt-3">ユーザーが見つかりませんでした。</p>
         @endif
         </div>
     <div class="col-2"></div>
