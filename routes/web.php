@@ -26,4 +26,6 @@ Route::get('login/new','Auth\LoginController@showLoginForm')->name('loginnew');
 Route::get('login/new/{pw}','Auth\DetailController@showDetailForm')->name('detail');
 Route::post('login/new/{pw}','Auth\DetailController@signup')->name('signup.post');
 
+Route::get('users', 'UserController@list')->name('user.list');
+
 Route::get('movie', 'MovieController@index')->name('movie.index');
