@@ -34,11 +34,10 @@
       </div>
       <div class="col-2"></div>
     </div>
-        <div class="text-center">
-            <button type="submit" id="btn-search" class="btn btn-primary">
-                <i class="fas fa-search"></i>キーワードで絞り込む
-            </button>
-        </div>
+    <div class="text-center">
+        <button type="submit" id="btn-search" class="btn btn-primary">
+            <i class="fas fa-search"></i>キーワードで絞り込む
+        </button>
     </div>
 </form>
 <div class="row mb-3">
@@ -71,8 +70,8 @@
                 </tbody>
             </table>
             @else
-        <p class="mt-3">ユーザーが見つかりませんでした。</p>
-        @endif
+            <p class="mt-3">ユーザーが見つかりませんでした。</p>
+            @endif
         </div>
     <div class="col-2"></div>
 </div>
