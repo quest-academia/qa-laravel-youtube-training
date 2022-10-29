@@ -12,12 +12,12 @@
                 @csrf
                     <div class="form-group">
                         <label class="form-label" for="email">メールアドレス</label>
-                        <input id="email" type="email" class="form-control" name="email">
+                        <input name="email" type="email" value="{{ old('email') }}" class="form-control">
                     </div>
 
                     <div class="form-group">
                         <label class="form-label" for="password">パスワード</label>
-                        <input id="password" type="password" class="form-control" name="password">
+                        <input name="password" type="password" class="form-control" maxlength="15">
                     </div>
 
                     <div class="actions text-center">
