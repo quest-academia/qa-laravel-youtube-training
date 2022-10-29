@@ -1,7 +1,9 @@
 @extends('layouts.app')
 @section('content')
-<a class="" href="{{route('movie.index')}}">&lt&lt一覧に戻る</a>
-<h1 class="mt-3">{{$movie->title}}</h1>
+<a class="" href="{{route('movie.index')}}">&lt一覧ページへ</a>
+<h1 class="mt-3 text-center">動画詳細画面</h1>
+<h2>タイトル</h2>
+<p class="h3">{{$movie->title}}</p>
 <div class="d-flex justify-content-center">
     <iframe src="{{$movie->getYoutubeEmbedURL()}}" width="560" height="315" frameborder="0" class="mx-auto w-60 mw-100 m-5"></iframe>
 </div>
