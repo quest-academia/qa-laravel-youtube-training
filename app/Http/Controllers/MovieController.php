@@ -47,11 +47,11 @@ class MovieController extends Controller
 
     public function edit(int $id)
     {
-        return redirect('movies/');
+        return redirect('movie/');
     }
 
     public function delete(int $id)
     {
-        return redirect('movies/');
+        return redirect('movie/');
     }
 }
