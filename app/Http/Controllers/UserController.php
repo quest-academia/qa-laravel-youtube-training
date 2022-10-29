@@ -29,10 +29,11 @@ class UserController extends Controller
                       ->orWhere('self_sentence', 'like', '%' . $value . '%');
             }
         }
+        $users_count = $query->count();
         $query->value('id', 'name', 'icon_url');
 
         $users = $query->latest()->paginate(10);
 
-        return view('user.lists', compact('users', 'search', 'search_tag'));
+        return view('user.lists', compact('users', 'users_count', 'search', 'search_tag'));
     }
 }

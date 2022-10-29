@@ -16,36 +16,38 @@
         <div class="col-2"></div>
     </div>
     <div class="form-group row">
-      <div class="col-2"></div>
-      <label for="inputPassword3" class="col-2 col-form-label">
-          タグで検索
-      </label>
-      <div class="col-6">
-          <div class="form-check form-check-inline">
-              <input name="tag_checkbox[]" type="checkbox" class="form-check-input" value="1"
-                  {{ is_array($search_tag) && in_array(1, $search_tag) ? 'checked' : '' ; }}>
-              <label class="form-check-label" for="tag_checkbox1">PHP</label>
-          </div>
-          <div class="form-check form-check-inline">
-              <input name="tag_checkbox[]" type="checkbox" class="form-check-input" value="2"
-                  {{ is_array($search_tag) && in_array(2, $search_tag) ? 'checked' : '' ; }}>
-              <label class="form-check-label" for="tag_checkbox2">JavaScript</label>
-          </div>
-      </div>
-      <div class="col-2"></div>
+        <div class="col-2"></div>
+        <label for="inputPassword3" class="col-2 col-form-label">
+            タグで検索
+        </label>
+        <div class="col-6">
+            <div class="form-check form-check-inline">
+                <input name="tag_checkbox[]" type="checkbox" class="form-check-input" value="1"
+                    {{ is_array($search_tag) && in_array(1, $search_tag) ? 'checked' : '' ; }}>
+                <label class="form-check-label" for="tag_checkbox1">PHP</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input name="tag_checkbox[]" type="checkbox" class="form-check-input" value="2"
+                    {{ is_array($search_tag) && in_array(2, $search_tag) ? 'checked' : '' ; }}>
+                <label class="form-check-label" for="tag_checkbox2">JavaScript</label>
+            </div>
+        </div>
+        <div class="col-2"></div>
     </div>
     <div class="text-center">
         <button type="submit" id="btn-search" class="btn btn-primary">
-            <i class="fas fa-search"></i>キーワードで絞り込む
+            <i class="fas fa-search"></i>&nbsp;検索する
         </button>
     </div>
 </form>
 <div class="row mb-3">
     <div class="col-2"></div>
+    <p class="col-8 text-left">&nbsp;全{{$users_count}}人</p>
+    <div class="col-2"></div>
+    <div class="col-2"></div>
         <div class="col-8 border">
             @if ($users->isNotEmpty())
-            <table class="table">
-                <tbody>
+            <table class="table ">
                 @foreach ($users as $user)
                 <tr class="row">
                     <td class="col-3">
@@ -67,7 +69,6 @@
                     </td>
                 </tr>
                 @endforeach
-                </tbody>
             </table>
             @else
             <p class="mt-3">ユーザーが見つかりませんでした。</p>
