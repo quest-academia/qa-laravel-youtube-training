@@ -36,9 +36,10 @@ class LoginController extends Controller
             return redirect()->intended('/');
         }
 
-        return back()->withErrors([
-            'login_error' => 'メールアドレスかパスワードが間違っています。'
-        ]);
+        return back()->withInput()
+                     ->withErrors([
+                        'login_error' => 'メールアドレスかパスワードが間違っています。'
+                    ]);
     }
 
     public function logout(Request $request)
