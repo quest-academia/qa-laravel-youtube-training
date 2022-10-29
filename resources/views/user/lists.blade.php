@@ -42,7 +42,11 @@
 </form>
 <div class="row mb-3">
     <div class="col-2"></div>
-    <p class="col-8 text-left">&nbsp;全{{$users_count}}人</p>
+    <p class="col-8 text-left">
+        @if ($users_count != 0)
+        &nbsp;全{{$users_count}}人
+        @endif
+    </p>
     <div class="col-2"></div>
     <div class="col-2"></div>
         <div class="col-8 border">
