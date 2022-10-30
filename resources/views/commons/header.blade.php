@@ -13,6 +13,9 @@
                         <a class="nav-link far fa-user fa-lg" href="">
                         </a>
                     </li> -->
+                    <li>
+                        <a class="nav-item nav-link" href="{{ route('movie.index') }}">動画一覧</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('logout') }}">ログアウト</a>
                     </li>

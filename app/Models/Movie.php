@@ -9,6 +9,7 @@ class Movie extends Model
 {
     //サムネイルがない時の画像。私立探求学園の画像を設定
     private const NO_IMAGE_THUMBNAIL_URL = 'http://img.youtube.com/vi/YI5oU-hKZKM/hqdefault.jpg';
+    private const NO_MOVIE_EMBED_URL = 'https://www.youtube.com/embed/YI5oU-hKZKM';
 
     use HasFactory;
 
@@ -45,9 +46,21 @@ class Movie extends Model
      */
     public function getYoutubeThumbnailURL()
     {
-        if (empty( $this->getYoutubeID())) {
+        if (empty($this->getYoutubeID())) {
             return self::NO_IMAGE_THUMBNAIL_URL;
         }
-        return 'http://img.youtube.com/vi/'.$this->getYoutubeID().'/hqdefault.jpg';
+        return 'http://img.youtube.com/vi/' . $this->getYoutubeID() . '/hqdefault.jpg';
+    }
+
+    /**
+     * Youtubeの埋め込み動画URLを取得。ない場合はnoImage用画像を取得
+     * @return string
+     */
+    public function getYoutubeEmbedURL()
+    {
+        if (empty($this->getYoutubeID())) {
+            return self::NO_MOVIE_EMBED_URL;
+        }
+        return 'https://www.youtube.com/embed/' . $this->getYoutubeID();
     }
 }

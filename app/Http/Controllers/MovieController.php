@@ -21,17 +21,37 @@ class MovieController extends Controller
             // 単語をループで回し、それぞれの単語で部分一致で検索
             foreach ($search_words_array as $value) {
                 $query->orWhere('title', 'like', '%' . $value . '%')
-                ->orWhere('description', 'like', '%' . $value . '%')
-                ->orWhereHas(
-                    'user',
-                    function ($query) use ($value) {
-                        $query->where('name', 'like', '%' . $value . '%');
-                    }
-                );
+                    ->orWhere('description', 'like', '%' . $value . '%')
+                    ->orWhereHas(
+                        'user',
+                        function ($query) use ($value) {
+                            $query->where('name', 'like', '%' . $value . '%');
+                        }
+                    );
             }
         }
 
         $movies = $query->latest()->paginate(12);
         return view('movie.index', compact('movies', 'search'));
+    }
+
+    public function detail(int $id)
+    {
+        $movie = Movie::with('user:id,name')->find($id);
+
+        if (is_null($movie)) {
+            abort(404);
+        }
+        return view('movie.detail', compact('movie'));
+    }
+
+    public function edit(int $id)
+    {
+        return redirect('movie/');
+    }
+
+    public function delete(int $id)
+    {
+        return redirect('movie/');
     }
 }
