@@ -29,6 +29,8 @@ Route::get('login/new/{pw}','Auth\DetailController@showDetailForm')->name('detai
 Route::post('login/new/{pw}','Auth\DetailController@signup')->name('signup.post');
 
 Route::get('users', 'UserController@list')->name('user.list');
+Route::get('administer/users', 'UserController@chengeAdministerList')->name('user.chengeAdministerList');
+Route::get('administer/users/{id}','UserController@chengeAdminister')->name('user.chengeAdminister');
 
 Route::get('movie', 'MovieController@index')->name('movie.index');
 Route::get('movie/{id}', 'MovieController@detail')->where('id', '[0-9]+')->name('movie.detail');
