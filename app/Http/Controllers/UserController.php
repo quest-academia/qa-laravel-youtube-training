@@ -81,7 +81,6 @@ class UserController extends Controller
 
             if ($query->administrator_flag) {
                 $update_administrator_flag = self::FLAG_OFF;
-
             } else {
                 $update_administrator_flag = self::FLAG_ON;
             }
@@ -89,7 +88,7 @@ class UserController extends Controller
             User::where('id', $id)
                   ->update(['administrator_flag'=>$update_administrator_flag]);
 
-        } catch(\Exception $e) {
+        } catch (\Exception $e) {
             logger()->error("chenge administer error".$e->getMessage());
         }
         return redirect()->route('user.chengeAdministerList');
