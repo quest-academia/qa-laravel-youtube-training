@@ -27,7 +27,7 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/', 'MovieController@index')->name('home');
 
     Route::get('users', 'UserController@list')->name('user.list');
-    Route::get('users/{id}', 'UserController@show')->name('user.show');
+    Route::get('users/{id}', 'UserController@show')->where('id', '[0-9]+')->name('user.show');
 
     Route::get('movie', 'MovieController@index')->name('movie.index');
     Route::get('movie/{id}', 'MovieController@detail')->where('id', '[0-9]+')->name('movie.detail');
