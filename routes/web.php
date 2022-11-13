@@ -13,8 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group(['middleware' => 'auth'], function(){
+Route::group(['middleware' => 'auth'], function () {
     Route::get('/', 'MovieController@index')->name('home');
+
+    Route::get('movie', 'MovieController@index')->name('movie.index');
+    Route::get('movie/{id}', 'MovieController@detail')->where('id', '[0-9]+')->name('movie.detail');
+    Route::get('movie/edit/{id}', 'MovieController@edit')->where('id', '[0-9]+')->name('movie.edit');
+    Route::get('movie/delete/{id}', 'MovieController@delete')->where('id', '[0-9]+')->name('movie.delete');
 });
 
 Route::group(['middleware' => 'guest'], function(){
@@ -31,8 +36,3 @@ Route::post('login/new/{pw}','Auth\DetailController@signup')->name('signup.post'
 Route::get('users', 'UserController@list')->name('user.list');
 Route::get('administer/users', 'UserController@chengeAdministerList')->name('user.chengeAdministerList');
 Route::get('administer/users/{id}', 'UserController@chengeAdminister')->name('user.chengeAdminister');
-
-Route::get('movie', 'MovieController@index')->name('movie.index');
-Route::get('movie/{id}', 'MovieController@detail')->where('id', '[0-9]+')->name('movie.detail');
-Route::get('movie/edit/{id}', 'MovieController@edit')->where('id', '[0-9]+')->name('movie.edit');
-Route::get('movie/delete/{id}', 'MovieController@delete')->where('id', '[0-9]+')->name('movie.delete');
