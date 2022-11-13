@@ -34,5 +34,8 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('movie/edit/{id}', 'MovieController@edit')->where('id', '[0-9]+')->name('movie.edit');
     Route::get('movie/delete/{id}', 'MovieController@delete')->where('id', '[0-9]+')->name('movie.delete');
 
+    Route::get('administer/users', 'UserController@chengeAdministerList')->name('user.chengeAdministerList');
+    Route::get('administer/users/{id}', 'UserController@chengeAdminister')->name('user.chengeAdminister');
+
     Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 });

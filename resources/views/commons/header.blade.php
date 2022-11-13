@@ -14,6 +14,9 @@
                         </a>
                     </li> -->
                     <li>
+                        <a class="nav-item nav-link" href="{{ route('user.list') }}">ユーザ一覧</a>
+                    </li>
+                    <li>
                         <a class="nav-item nav-link" href="{{ route('movie.index') }}">動画一覧</a>
                     </li>
                     <li class="nav-item">
