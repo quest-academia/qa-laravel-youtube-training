@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group(['middleware' => 'guest'], function(){
+Route::group(['middleware' => 'guest'], function () {
     Route::get('login/new', 'Auth\LoginController@showLoginForm')->name('loginnew');
     Route::get('login/new/{pw}', 'Auth\DetailController@showDetailForm')->name('detail');
     Route::post('login/new/{pw}', 'Auth\DetailController@signup')->name('signup.post');
@@ -23,7 +23,7 @@ Route::group(['middleware' => 'guest'], function(){
     Route::post('login/new', 'Auth\LoginController@login')->name('loginnew.post');
 });
 
-Route::group(['middleware' => 'auth'], function(){
+Route::group(['middleware' => 'auth'], function () {
     Route::get('/', 'MovieController@index')->name('home');
 
     Route::get('users', 'UserController@list')->name('user.list');
